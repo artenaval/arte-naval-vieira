@@ -119,3 +119,37 @@ footer {
   padding: 1rem;
   margin-top: 2rem;
 }
+#category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#category-buttons button {
+  background: #2a5298;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+#category-buttons button:hover {
+  background: #1e3c72;
+}
+
+#category-buttons button.active {
+  background: #4c84ff;
+}
+
+.category {
+  display: none;
+  margin-top: 25px;
+}
+
+.category.active {
+  display: block;
+}

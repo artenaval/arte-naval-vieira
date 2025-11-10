@@ -111,3 +111,15 @@ window.addEventListener('DOMContentLoaded', () => {
   renderCart();
 });
 
+// Controle de exibição por categoria
+document.querySelectorAll('#category-buttons button').forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove "ativo" de todos os botões e seções
+    document.querySelectorAll('#category-buttons button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.category').forEach(sec => sec.classList.remove('active'));
+
+    // Ativa o botão e a seção correspondentes
+    button.classList.add('active');
+    document.getElementById(button.dataset.category).classList.add('active');
+  });
+});
