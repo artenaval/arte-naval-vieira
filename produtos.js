@@ -1,8 +1,8 @@
 // Dados dos produtos com id, título e preço para controle do carrinho
 const products = [
   { id: 'relogio-resina', title: 'Relógio de Resina', price: 150.00 },
-  { id: 'porta-chaves', title: 'Porta Chaves', price: 80.00 },
-  { id: 'quadro-nos', title: 'Quadro de Nós', price: 280.00 }
+  { id: 'porta-chaves', title: 'Porta Chaves', price: 60.00 },
+  { id: 'quadro-nos', title: 'Quadro de Nós', price: 320.00 }
 ];
 
 let cart = [];
@@ -110,3 +110,4 @@ window.addEventListener('DOMContentLoaded', () => {
   setupAddButtons();
   renderCart();
 });
+
