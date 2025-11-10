@@ -32,6 +32,16 @@
     color: #2c7a7b;
     margin: 10px 0;
   }
+  section {
+    margin-top: 40px;
+  }
+  section h3 {
+    font-size: 1.4em;
+    color: #2a5298;
+    border-bottom: 2px solid #2a5298;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
   #cart {
     margin-top: 30px;
     background: #fff;
@@ -52,83 +62,149 @@
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
-    display: inline-block;
   }
   #checkout-link:hover {
     background: #1e3c72;
   }
+  /* Modal de imagem */
   .modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  padding-top: 50px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-}
-
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 80vh;
-  border-radius: 8px;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 30px;
-  color: #fff;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-}
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 8px;
+  }
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 </style>
 </head>
+
 <body>
-    <div id="image-modal" class="modal">
+  <div id="image-modal" class="modal">
     <span class="close">&times;</span>
     <img class="modal-content" id="modal-img">
   </div>
-</body>
-<header class="site-header">
-  <div class="container">
-    <h1>Arte Naval Vieira</h1>
-    <nav>
-      <a href="index.htm">Início</a>
-      <a href="produtos.htm">Produtos</a>
-      <a href="contato.htm">Contato</a>
-    </nav>
-  </div>
-</header>
 
-<main class="container">
+  <header class="site-header">
+    <div class="container">
+      <h1>Arte Naval Vieira</h1>
+      <nav>
+        <a href="index.htm">Início</a>
+        <a href="produtos.htm" class="active">Produtos</a>
+        <a href="contato.htm">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
   <h2>Nossos Produtos</h2>
-  <div class="products" id="product-list">
-    <div class="product-card">
-      <img src="imagens/Relogio_Resina.jpg" alt="Relógio de Resina" class="product-image" />
-      <h3>Relógio de Resina</h3>
-      <p>Peça artesanal feita à mão com resina epóxi com 30 cm de diamêtro.</p>
-      <div class="product-price">R$ 150,00</div>
-    </div>
-    <div class="product-card">
-      <img src="imagens/Porta_Chaves.jpg" alt="Porta Chaves de Madeira" class="product-image" />
-      <h3>Porta Chaves</h3>
-      <p>Feito à mão com resina e madeira.</p>
-      <div class="product-price">R$ 60,00</div>
-    </div>
-    <div class="product-card">
-      <img src="imagens/Quadro_Nó.jpg" alt="Quadro de Nós" class="product-image" />
-      <h3>Quadro de Nós</h3>
-      <p>Arte náutica tradicional com cordas e madeira com 30 x 40 cm de medida interna.</p>
-      <div class="product-price">R$ 320,00</div>
-    </div>
+
+  <!-- Botões de filtro -->
+  <div id="category-buttons">
+    <button class="active" data-category="relogios">🕒 Relógios de Resina</button>
+    <button data-category="portachaves">🔑 Porta-Chaves</button>
+    <button data-category="quadros">⚓ Quadros de Nós</button>
+    <button data-category="tabuas">🔪 Tábuas Resinadas</button>
   </div>
 
+  <!-- Seção: Relógios de Resina -->
+  <section class="category active" id="relogios">
+    <div class="products">
+      <div class="product-card">
+        <img src="imagens/Relogio_Resina_45cm.jpeg" alt="Relógio de Resina" class="product-image" />
+        <h4>Relógio de Resina 45cm</h4>
+        <p>Peça artesanal feita à mão com resina epóxi com 45 cm de diâmetro.</p>
+        <div class="product-price">R$ 250,00</div>
+      </div>
+      <div class="product-card">
+        <img src="imagens/Relogio_resina_35cm.jpeg" alt="Relógio de Resina" class="product-image" />
+        <h4>Relógio de Resina 35cm</h4>
+        <p>Peça artesanal feita à mão com resina epóxi com 35 cm de diâmetro.</p>
+        <div class="product-price">R$ 180,00</div>
+      </div>
+      <div class="product-card">
+        <img src="imagens/Relogio_Resina_22x20cm.jpeg" alt="Relógio de Resina" class="product-image" />
+        <h4>Relógio de Resina 22x20cm</h4>
+        <p>Peça artesanal feita à mão com resina epóxi com 22x20 cm.</p>
+        <div class="product-price">R$ 160,00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Porta-Chaves -->
+  <section class="category" id="portachaves">
+    <div class="products">
+      <div class="product-card">
+        <img src="imagens/Porta_Chaves.jpg" alt="Porta Chaves de Madeira" class="product-image" />
+        <h4>Porta Chaves 4 Ganchos</h4>
+        <p>Feito à mão com resina e madeira.</p>
+        <div class="product-price">R$ 60,00</div>
+      </div>
+      <div class="product-card">
+        <img src="imagens/Porta_Chaves_6_ganchos.jpeg" alt="Porta Chaves de Madeira" class="product-image" />
+        <h4>Porta Chaves 6 Ganchos</h4>
+        <p>Feito à mão com resina e madeira.</p>
+        <div class="product-price">R$ 90,00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Quadros de Nós -->
+  <section class="category" id="quadros">
+    <div class="products">
+      <div class="product-card">
+        <img src="imagens/Quadro_Nó.jpg" alt="Quadro de Nós" class="product-image" />
+        <h4>Quadro de Nós com Relógio (30x40cm)</h4>
+        <p>Arte náutica tradicional com cordas, madeira e relógio com 30x40 cm de medida interna.</p>
+        <div class="product-price">R$ 320,00</div>
+      </div>
+      <div class="product-card">
+        <img src="imagens/Quadro_Nó_30x40cm_sem_relogio.jpeg" alt="Quadro de Nós" class="product-image" />
+        <h4>Quadro de Nós 30x40cm</h4>
+        <p>Arte náutica tradicional com cordas e madeira.</p>
+        <div class="product-price">R$ 280,00</div>
+      </div>
+      <div class="product-card">
+        <img src="imagens/Quadro_Nó_28x38cm.jpeg" alt="Quadro de Nós" class="product-image" />
+        <h4>Quadro de Nós 28x38cm</h4>
+        <p>Arte náutica tradicional com cordas, madeira e relógio com 28x38 cm de medida interna.</p>
+        <div class="product-price">R$ 160,00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Tábuas Resinadas -->
+  <section class="category" id="tabuas">
+    <div class="products">
+      <div class="product-card">
+        <img src="imagens/Tabua_Churrasco_39x45cm_resinada.jpeg" alt="Tábua Resinada" class="product-image" />
+        <h4>Tábua de Churrasco 39x45cm</h4>
+        <p>Tábua de churrasco personalizada e resinada, feita artesanalmente.</p>
+        <div class="product-price">R$ 150,00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carrinho -->
   <aside id="cart" class="cart-box">
     <h3>Carrinho</h3>
     <div id="cart-items">Carrinho vazio.</div>
@@ -136,8 +212,7 @@
     <a href="pagamento.htm" id="checkout-link">Finalizar Compra</a>
   </aside>
 </main>
-
 <footer>© 2025 Arte Naval Vieira</footer>
 </body>
-
 </html>
+
