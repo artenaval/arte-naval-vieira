@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato - Arte Naval Vieira</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  main {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  button {
+    background: #2a5298;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover {
+    background: #1e3c72;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <h1>Arte Naval Vieira</h1>
+    <nav>
+      <a href="index.htm">Início</a>
+      <a href="produtos.htm">Produtos</a>
+      <a href="contato.htm">Contato</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <h2>Contato e Confirmação do Pedido</h2>
+  <form id="contact-form">
+    <label>Nome:</label>
+    <input type="text" id="nome" required />
+
+    <label>Telefone (WhatsApp):</label>
+    <input type="tel" id="telefone" required placeholder="(DDD) 99999-9999" />
+
+    <label>Email:</label>
+    <input type="email" id="email" required />
+
+    <label>Resumo do Pedido:</label>
+    <textarea id="mensagem" rows="8" readonly></textarea>
+
+    <button type="button" id="enviar-whatsapp">Enviar pelo WhatsApp</button>
+  </form>
+</main>
+
+<footer>© 2025 Arte Naval Vieira</footer>
+
+<script>
+  // Carrega o pedido salvo
+  const pedido = localStorage.getItem("pedido");
+  if (pedido) {
+    document.getElementById("mensagem").value = pedido;
+  }
+
+  // Envia via WhatsApp
+  document.getElementById("enviar-whatsapp").addEventListener("click", () => {
+    const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
+    const email = document.getElementById("email").value;
+    const pedido = document.getElementById("mensagem").value;
+
+    if (!nome || !telefone || !email) {
+      alert("Por favor, preencha todos os campos antes de enviar.");
+      return;
+    }
+
+    const texto = encodeURIComponent(
+      `${pedido}\n👤 *Nome:* ${nome}\n📞 *Telefone:* ${telefone}\n📧 *Email:* ${email}`
+    );
+
+    // Coloque aqui o SEU número com DDI do Brasil (+55)
+    const numeroWhatsApp = "5521979798109"; // Exemplo: 5511999999999
+
+    const link = `https://wa.me/${numeroWhatsApp}?text=${texto}`;
+    window.open(link, "_blank");
+  });
+</script>
+</body>
+</html>
